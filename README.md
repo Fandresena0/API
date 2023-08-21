@@ -1,3 +1,4 @@
 # API
+this is the link for petstore.swagger.io
 
-this is the API for a student attribut
+- https://petstore.swagger.io/?url=https://raw.githubusercontent.com/Fandresena0/API/main/openapi.yml
