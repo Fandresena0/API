@@ -1,0 +1,224 @@
+openapi: 3.0.3
+info:
+  title: API onboarding
+  description: STD22112
+  version: 1.0.0
+servers:
+  - url: https://STD22112.com/api
+
+paths:
+  /student:
+    post:
+      tags:
+        - student
+      summary: add new student
+      description: This can only be done by the logged-in student.
+      operationId: addStudent
+      requestBody:
+        description: add student object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+    get:
+      tags:
+        - student
+      summary: Get student by student name
+      operationId: getStudentByName
+      parameters:
+        - name: studentname
+          in: path
+          description: 'The name that needs to be fetched'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          description: Invalid studentname supplied
+        '404':
+          description: Student not found
+    put:
+      tags:
+        - student
+      summary: Update student
+      operationId: updateStudent
+      parameters:
+        - name: studentname
+          in: path
+          description: Name that needs to be updated
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existing student in the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+    delete:
+      tags:
+        - student
+      summary: Delete student
+      operationId: deleteStudent
+      parameters:
+        - name: studentname
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid studentname supplied
+        '404':
+          description: Student not found
+    
+  /teacher:
+    post:
+      tags:
+        - teacher
+      summary: add new teacher
+      description: This can only be done by the logged-in teacher.
+      operationId: addteacher
+      requestBody:
+        description: add teacher object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/teacher'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/teacher'
+    get:
+      tags:
+        - teacher
+      summary: Get teacher by teacher name
+      operationId: getteacherByName
+      parameters:
+        - name: teachername
+          in: path
+          description: 'The name that needs to be fetched'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/teacher'
+        '400':
+          description: Invalid teachername supplied
+        '404':
+          description: teacher not found
+    put:
+      tags:
+        - teacher
+      summary: Update teacher
+      operationId: updateteacher
+      parameters:
+        - name: teachername
+          in: path
+          description: Name that needs to be updated
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existing teacher in the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/teacher'
+      responses:
+        '200':
+          description: Successful operation
+    delete:
+      tags:
+        - teacher
+      summary: Delete teacher
+      operationId: deleteteacher
+      parameters:
+        - name: teachername
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid teachername supplied
+        '404':
+          description: teacher not found
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        STD:
+          type: string
+          example: STD22112
+        Groupe:
+          type: string
+          example: H4
+        firstName:
+          type: string
+          example: Anjara Fandresena
+        lastName:
+          type: string
+          example: RAFALIARIMANANA
+        email:
+          type: string
+          example: hei.fandresena.2@gmail.com
+        age:
+          type: integer
+          example: 18
+    teacher:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: Tokimahery Ramarozaka
+        email:
+          type: string
+          example: toky@hei.school
+        cours:
+          type: string
+          example: algorithme , base de donnée
+        coursCode:
+          type: string
+          example: PROG1 , donnée1
+        
+        
