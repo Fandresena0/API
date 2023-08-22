@@ -5,4 +5,4 @@
 
 *copy this link in input 
 
-- https://raw.githubusercontent.com/Fandresena0/API/main/openapi.yml?token=GHSAT0AAAAAACERKLV6QS4CMDUC2BFB7QGMZHEMDTQ
+- https://raw.githubusercontent.com/Fandresena0/API/main/openapi.yml?token=GHSAT0AAAAAACERKLV65FYKWZQHSTY3LUK2ZHEMLZA
